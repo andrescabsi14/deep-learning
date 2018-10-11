@@ -70,24 +70,14 @@ class NeuralNetwork(object):
             delta_weights_h_o: change in weights from hidden to output layers
 
         '''
-        #### Implement the backward pass here ####
-        ### Backward pass ###
+        error = y - final_outputs # Output layer error is the difference between desired target and actual output.
+        
+        output_error_term = error # Backpropagated error terms - Replace these values with your calculations.
+        hidden_error = np.dot(self.weights_hidden_to_output, output_error_term) # Calculate the hidden layer's contribution to the error
+        hidden_error_term = hidden_error * hidden_outputs * (1 - hidden_outputs)
+        delta_weights_i_h += hidden_error_term * X[:, None] # Weight step (input to hidden)
+        delta_weights_h_o += output_error_term * hidden_outputs[:, None] # Weight step (hidden to output)
 
-        # TODO: Output error - Replace this value with your calculations.
-        error = None # Output layer error is the difference between desired target and actual output.
-        
-        # TODO: Calculate the hidden layer's contribution to the error
-        hidden_error = None
-        
-        # TODO: Backpropagated error terms - Replace these values with your calculations.
-        output_error_term = None
-        
-        hidden_error_term = None
-        
-        # Weight step (input to hidden)
-        delta_weights_i_h += None
-        # Weight step (hidden to output)
-        delta_weights_h_o += None
         return delta_weights_i_h, delta_weights_h_o
 
     def update_weights(self, delta_weights_i_h, delta_weights_h_o, n_records):
