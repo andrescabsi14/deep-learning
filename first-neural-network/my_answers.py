@@ -48,10 +48,8 @@ class NeuralNetwork(object):
 
         '''
         hidden_inputs = np.dot(X, self.weights_input_to_hidden) # signals into hidden layer
-        print(hidden_inputs)
         
         hidden_outputs = self.activation_function(hidden_inputs) # signals from hidden layer
-        print(hidden_outputs)
 
         final_inputs = np.dot(hidden_outputs, self.weights_hidden_to_output) # signals into final output layer
         final_outputs = final_inputs # signals from final output layer
@@ -101,8 +99,8 @@ class NeuralNetwork(object):
         '''
         
         hidden_inputs = np.dot(features, self.weights_input_to_hidden) # signals into hidden layer
-        hidden_outputs = self.activation_function(hidden_inputs) # signals from hidden layer
-        final_inputs = np.dot(hidden_outputs, self.weights_hidden_to_output) # signals into final output layer
+        hidden_outputs = self.activation_function(hidden_inputs) # signals from hidden layer 
+        final_inputs = np.dot(hidden_outputs, self.weights_hidden_to_output) # signals into final output layer 
         final_outputs = final_inputs # signals from final output layer 
         
         return final_outputs
@@ -111,7 +109,7 @@ class NeuralNetwork(object):
 #########################################################
 # Set your hyperparameters here
 ##########################################################
-iterations = 5000
+iterations = 4500
 learning_rate = 0.4
-hidden_nodes = 30
+hidden_nodes = 37
 output_nodes = 1
