@@ -47,15 +47,17 @@ class NeuralNetwork(object):
             X: features batch
 
         '''
-
         hidden_inputs = np.dot(X, self.weights_input_to_hidden) # signals into hidden layer
+        print(hidden_inputs)
+        
         hidden_outputs = self.activation_function(hidden_inputs) # signals from hidden layer
+        print(hidden_outputs)
 
-        # TODO: Output layer - Replace these values with your calculations.
         final_inputs = np.dot(hidden_outputs, self.weights_hidden_to_output) # signals into final output layer
         final_outputs = final_inputs # signals from final output layer
         
         return final_outputs, hidden_outputs
+
 
     def backpropagation(self, final_outputs, hidden_outputs, X, y, delta_weights_i_h, delta_weights_h_o):
         ''' Implement backpropagation
